@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 import Cube from "./components/Cube";
+import RedCube from "./components/RedCube";
 import Line from "./components/Line";
 import Model from "./components/Model";
 
@@ -19,6 +20,7 @@ class App extends Component {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/cube">Cube</Link></li>
+                <li><Link to="/red-cube">Red Cube</Link></li>
                 <li><Link to="/line">Line</Link></li>
                 <li><Link to="/model">Model</Link></li>
               </ul>
@@ -27,6 +29,7 @@ class App extends Component {
           <main id="main">
             <Route path="/" exact component={Index} />
             <Route path="/cube" component={Cube} />
+            <Route path="/red-cube" component={RedCube} />
             <Route path="/line" component={Line} />
             <Route path="/model" component={Model} />
           </main>
