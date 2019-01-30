@@ -1,20 +1,17 @@
 import React from 'react';
 import * as Three from "three";
 
+// libs
+import {createThreeJSDefaults} from "../libs";
+
 
 export default class Line extends React.Component {
   componentDidMount() {
-    const { innerWidth, innerHeight } = window;
-    const ratio = innerWidth / innerHeight;
-    const fov = 45;
-    const innerClipping = 1;
-    const outerClipping = 500;
+    const { camera, scene, renderer } = createThreeJSDefaults();
 
     const app = document.getElementById('three-js-line');
 
-    const camera = new Three.PerspectiveCamera(fov, ratio, innerClipping, outerClipping);
-    camera.position.set(0, 0, 100);
-    camera.lookAt(0, 0, 0);
+    camera.position.z = 100;
 
     // Three.BufferGeometry is more performant
     const geometry = new Three.Geometry();
@@ -23,14 +20,10 @@ export default class Line extends React.Component {
     geometry.vertices.push(new Three.Vector3( 10, 0, 0) );
 
     const material = new Three.LineBasicMaterial({ color: 0x0000ff });
-
     const line = new Three.Line(geometry, material);
 
-    const scene = new Three.Scene();
     scene.add(line);
 
-    const renderer = new Three.WebGLRenderer();
-    renderer.setSize(innerWidth, innerHeight);
     renderer.render(scene, camera);
 
     app.appendChild(renderer.domElement);
