@@ -7,7 +7,7 @@ import {createThreeJSDefaults} from "../libs";
 
 export default class RedCube extends React.Component {
   componentDidMount() {
-    const { scene, renderer, camera } = createThreeJSDefaults();
+    const { scene, renderer, camera, ambientLight } = createThreeJSDefaults();
 
     camera.position.z = 100;
     // APP
@@ -19,8 +19,8 @@ export default class RedCube extends React.Component {
     const box = new Three.Mesh(geometry, material);
     box.name = "box";
 
-    // PLACEMENT
     scene.add(box);
+    scene.add(ambientLight);
     
     const render = () => {
       camera.rotation.z += 0.01;

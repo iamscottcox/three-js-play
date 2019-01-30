@@ -7,7 +7,7 @@ import {createThreeJSDefaults} from "../libs";
 
 export default class Line extends React.Component {
   componentDidMount() {
-    const { camera, scene, renderer } = createThreeJSDefaults();
+    const { camera, scene, renderer, ambientLight } = createThreeJSDefaults();
 
     const app = document.getElementById('three-js-line');
 
@@ -23,6 +23,7 @@ export default class Line extends React.Component {
     const line = new Three.Line(geometry, material);
 
     scene.add(line);
+    scene.add(ambientLight);
 
     renderer.render(scene, camera);
 

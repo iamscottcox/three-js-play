@@ -4,7 +4,7 @@ import {createThreeJSDefaults} from "../libs";
 
 export default class Cube extends React.Component {
   componentDidMount() {
-    const { scene, camera, renderer } = createThreeJSDefaults();
+    const { scene, camera, renderer, ambientLight } = createThreeJSDefaults();
     const app = document.getElementById('three-js-cube');
     app.appendChild(renderer.domElement);
 
@@ -13,6 +13,8 @@ export default class Cube extends React.Component {
     const cube = new Three.Mesh(geometry, material);
 
     camera.position.z = 5;
+
+    scene.add(ambientLight);
     scene.add(cube);
 
     const animate = () => {
