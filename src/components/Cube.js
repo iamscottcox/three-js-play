@@ -1,30 +1,19 @@
 import React from 'react';
 import * as Three from 'three';
+import {createThreeJSDefaults} from "../libs";
 
 export default class Cube extends React.Component {
   componentDidMount() {
-    const { innerWidth, innerHeight } = window;
+    const { scene, camera, renderer } = createThreeJSDefaults();
     const app = document.getElementById('three-js-cube');
-    const fov = 75;
-    const ratio = innerWidth / innerHeight;
-    // Change these two values can reap a performance gain
-    const nearClippingPlane = 0.1;
-    const farClippingPlane = 1000;
-
-    const scene = new Three.Scene();
-    const camera = new Three.PerspectiveCamera(fov, ratio, nearClippingPlane, farClippingPlane);
-    const renderer = new Three.WebGLRenderer();
-
-    renderer.setSize( window.innerWidth, window.innerHeight );
     app.appendChild(renderer.domElement);
 
     const geometry = new Three.BoxGeometry(1, 1, 1);
     const material = new Three.MeshBasicMaterial({ color: 0x00ff00 });
     const cube = new Three.Mesh(geometry, material);
 
-    scene.add(cube);
-
     camera.position.z = 5;
+    scene.add(cube);
 
     const animate = () => {
       this.animationFrame = requestAnimationFrame(animate);
