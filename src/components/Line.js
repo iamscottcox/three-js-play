@@ -1,5 +1,5 @@
 import React from 'react';
-import * as THREE from "three";
+import * as Three from "three";
 
 
 export default class Line extends React.Component {
@@ -12,24 +12,24 @@ export default class Line extends React.Component {
 
     const app = document.getElementById('three-js-line');
 
-    const camera = new THREE.PerspectiveCamera(fov, ratio, innerClipping, outerClipping);
+    const camera = new Three.PerspectiveCamera(fov, ratio, innerClipping, outerClipping);
     camera.position.set(0, 0, 100);
     camera.lookAt(0, 0, 0);
 
-    // THREE.BufferGeometry is more performant
-    const geometry = new THREE.Geometry();
-    geometry.vertices.push(new THREE.Vector3( -10, 0, 0) );
-    geometry.vertices.push(new THREE.Vector3( 0, 10, 0) );
-    geometry.vertices.push(new THREE.Vector3( 10, 0, 0) );
+    // Three.BufferGeometry is more performant
+    const geometry = new Three.Geometry();
+    geometry.vertices.push(new Three.Vector3( -10, 0, 0) );
+    geometry.vertices.push(new Three.Vector3( 0, 10, 0) );
+    geometry.vertices.push(new Three.Vector3( 10, 0, 0) );
 
-    const material = new THREE.LineBasicMaterial({ color: 0x0000ff });
+    const material = new Three.LineBasicMaterial({ color: 0x0000ff });
 
-    const line = new THREE.Line(geometry, material);
+    const line = new Three.Line(geometry, material);
 
-    const scene = new THREE.Scene();
+    const scene = new Three.Scene();
     scene.add(line);
 
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new Three.WebGLRenderer();
     renderer.setSize(innerWidth, innerHeight);
     renderer.render(scene, camera);
 
