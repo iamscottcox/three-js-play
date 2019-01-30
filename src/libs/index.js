@@ -21,3 +21,17 @@ export const createThreeJSDefaults = () => {
     stats,
   }
 };
+
+export const createRenderFunction = (renderer, scene, camera, callback = () => {}) => () => {
+  renderer.render(scene, camera);
+  callback();
+};
+
+export const createAnimateFunction = (render) => {
+  const animate = () => {
+    render();
+    return requestAnimationFrame(animate);
+  };
+
+  return animate;
+};
