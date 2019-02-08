@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import Stats from 'stats';
+import Stats from 'stats.js';
 import * as Three from "three";
 
 // libs
