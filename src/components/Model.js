@@ -4,7 +4,7 @@ import * as Three from "three";
 import GLTFLoader from "three-gltf-loader";
 
 // GLTFs
-import Artorias from "../GLTF/artorias.glb";
+import Artorias from "../GLTF/artorias/artorias.glb";
 // libs
 import { createThreeJSDefaults } from "../libs";
 import { activateOrbitControls } from "../libs/orbit-controls";
@@ -22,11 +22,17 @@ export default class Model extends React.Component {
     // Load the Orbitcontroller
     activateOrbitControls(Three, camera, renderer.domElement);
 
-    const directionalLight = new Three.DirectionalLight("#fff");
-    directionalLight.position.set(0, 10, 15).normalize();
+    const directionalLight = new Three.PointLight(0xffffff, 1, 100);
+    directionalLight.position.set(0, 25, 10);
+    directionalLight.castShadow = true;
+
+    // ambientLight.castShadow = true;
 
     scene.add(directionalLight);
     scene.add(ambientLight);
+
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMapSize = 4096;
 
     // glTf 2.0 Loader
     const loader = new GLTFLoader();
@@ -39,7 +45,7 @@ export default class Model extends React.Component {
 
       gltf.scene.scale.set(0.5, 0.5, 0.5);
       gltf.scene.position.x = 0; //Position (x = right+ left-)
-      gltf.scene.position.y = -6; //Position (y = up+, down-)
+      gltf.scene.position.y = -4; //Position (y = up+, down-)
       gltf.scene.position.z = 0; //Position (z = front +, back-)
 
       scene.add(gltf.scene);
