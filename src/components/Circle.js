@@ -16,7 +16,7 @@ export default class Circle extends React.Component {
     activateOrbitControls(Three, camera, renderer);
 
     const geometry = new Three.CircleGeometry(5, 64);
-    const material = new Three.MeshBasicMaterial({ color: 0xffff00 });
+    const material = new Three.MeshBasicMaterial({ color: 0xffff00, side: Three.DoubleSide });
     const circle = new Three.Mesh(geometry, material);
 
     camera.position.z = 40;
