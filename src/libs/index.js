@@ -7,6 +7,7 @@ export const createThreeJSDefaults = () => {
   const renderer = window.WebGLRenderingContext ? new Three.WebGLRenderer() : new Three.CanvasRenderer();
   const camera = new Three.PerspectiveCamera(35, innerWidth / innerHeight, 1, 1000);
   const ambientLight = new Three.AmbientLight(0xffffff);
+  const textureLoader = new Three.TextureLoader();
   const stats = new Stats();
 
   renderer.setSize(innerWidth, innerHeight);
@@ -19,6 +20,7 @@ export const createThreeJSDefaults = () => {
     camera,
     ambientLight,
     stats,
+    textureLoader,
   }
 };
 
