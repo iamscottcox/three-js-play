@@ -9,6 +9,7 @@ import Circle from "./components/Circle";
 import Sphere from "./components/Sphere";
 import CustomGeometry from "./components/CustomGeometry";
 import Extrusion from "./components/Extrusion";
+import OrbitalLight from './components/OrbitalLight';
 
 const Index = () => (
   <div>Choose an example from the nav menu</div>
@@ -31,6 +32,7 @@ class App extends Component {
                 <li><Link to="/sphere">Sphere</Link></li>
                 <li><Link to="/custom-geometry">Custom Geometry</Link></li>
                 <li><Link to="/extrusion">Extrusion</Link></li>
+                <li><Link to="/orbital-light">Orbital Light</Link></li>
               </ul>
             </nav>
           </header>
@@ -44,6 +46,7 @@ class App extends Component {
             <Route path="/sphere" component={Sphere} />
             <Route path="/custom-geometry" component={CustomGeometry} />
             <Route path="/extrusion" component={Extrusion} />
+            <Route path="/orbital-light" component={OrbitalLight} />
           </main>
         </div>
       </Router>
