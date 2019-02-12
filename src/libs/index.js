@@ -1,5 +1,6 @@
 import * as Three from "three";
 import Stats from "stats.js";
+import GLTFLoader from "three-gltf-loader";
 
 export const createThreeJSDefaults = () => {
   const { innerWidth, innerHeight, devicePixelRatio } = window;
@@ -8,6 +9,7 @@ export const createThreeJSDefaults = () => {
   const camera = new Three.PerspectiveCamera(35, innerWidth / innerHeight, 1, 1000);
   const ambientLight = new Three.AmbientLight(0xffffff);
   const textureLoader = new Three.TextureLoader();
+  const gltfLoader = new GLTFLoader();
   const stats = new Stats();
 
   renderer.setSize(innerWidth, innerHeight);
@@ -21,6 +23,7 @@ export const createThreeJSDefaults = () => {
     ambientLight,
     stats,
     textureLoader,
+    gltfLoader,
   }
 };
 
