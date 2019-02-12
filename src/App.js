@@ -11,7 +11,7 @@ import CustomGeometry from "./components/CustomGeometry";
 import Extrusion from "./components/Extrusion";
 import OrbitalLight from './components/OrbitalLight';
 import Torch from "./components/Torch";
-
+import TyrannosaurusRex from './components/TyrannosaurusRex'
 
 const Index = () => (
   <div>Choose an example from the nav menu</div>
@@ -36,6 +36,7 @@ class App extends Component {
                 <li><Link to="/extrusion">Extrusion</Link></li>
                 <li><Link to="/orbital-light">Orbital Light</Link></li>
                 <li><Link to="/torch">Torch</Link></li>
+                <li><Link to="/tyrannosaurus-rex">Tyrannosaurus Rex</Link></li>
               </ul>
             </nav>
           </header>
@@ -51,6 +52,7 @@ class App extends Component {
             <Route path="/extrusion" component={Extrusion} />
             <Route path="/orbital-light" component={OrbitalLight} />
             <Route path="/torch" component={Torch} />
+            <Route path="/tyrannosaurus-rex" component={TyrannosaurusRex} />
           </main>
         </div>
       </Router>
