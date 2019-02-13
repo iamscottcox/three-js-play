@@ -37,9 +37,9 @@ export default class Model extends React.Component {
     // glTf 2.0 Loader
     const loader = new GLTFLoader();
     loader.load(Artorias, function(gltf) {
-      gltf.scene.children.forEach(child => {
-        if (child.material !== undefined) {
-          child.material = new Three.MeshStandardMaterial({ color: "#666" });
+      gltf.scene.travese((node) => {
+        if (node instanceof Three.Mesh === true) {
+          node.castShadow = true;
         }
       });
 
