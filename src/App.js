@@ -12,6 +12,8 @@ import Extrusion from "./components/Extrusion";
 import OrbitalLight from './components/OrbitalLight';
 import Torch from "./components/Torch";
 import TyrannosaurusRex from './components/TyrannosaurusRex'
+import Hover from './components/Hover'
+import ParticleSystem from './components/ParticleSystem';
 
 const Index = () => (
   <div>Choose an example from the nav menu</div>
@@ -37,6 +39,8 @@ class App extends Component {
                 <li><Link to="/orbital-light">Orbital Light</Link></li>
                 <li><Link to="/torch">Torch</Link></li>
                 <li><Link to="/tyrannosaurus-rex">Tyrannosaurus Rex</Link></li>
+                <li><Link to="/hover">Hover</Link></li>
+                <li><Link to="/particle-system">Particle System</Link></li>
               </ul>
             </nav>
           </header>
@@ -53,6 +57,8 @@ class App extends Component {
             <Route path="/orbital-light" component={OrbitalLight} />
             <Route path="/torch" component={Torch} />
             <Route path="/tyrannosaurus-rex" component={TyrannosaurusRex} />
+            <Route path="/hover" component={Hover} />
+            <Route path="/particle-system" component={ParticleSystem} />
           </main>
         </div>
       </Router>
