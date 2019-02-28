@@ -100,7 +100,6 @@ export default class ParticleSystem extends React.Component {
         sizes[ i ] = 5 * ( 1 + Math.sin( 0.1 * i + time ) );
       }
       geometry.attributes.size.needsUpdate = true;
-      renderer.render( scene, camera );
     };
     const render = createRenderFunction(renderer, scene, camera, renderCallback);
     const animate = createAnimateFunction(render);
