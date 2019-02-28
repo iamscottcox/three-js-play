@@ -28,8 +28,8 @@ export const createThreeJSDefaults = () => {
 };
 
 export const createRenderFunction = (renderer, scene, camera, callback = () => {}) => () => {
-  renderer.render(scene, camera);
   callback();
+  renderer.render(scene, camera);
 };
 
 export const createAnimateFunction = (render) => {
