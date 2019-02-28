@@ -32,8 +32,9 @@ export const createRenderFunction = (renderer, scene, camera, callback = () => {
   renderer.render(scene, camera);
 };
 
-export const createAnimateFunction = (render) => {
+export const createAnimateFunction = (render, callback = () => {}) => {
   const animate = () => {
+    callback();
     render();
     return requestAnimationFrame(animate);
   };
